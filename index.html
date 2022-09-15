@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Converter</title>
+    <link id="page_favicon" href="data:image/x-icon;base64,R0lGODlhEAAQAPEAAAAAAP/3AAAAAAAAACH5BAlGAAIAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAAC55QkIiIiIoQQQggBAAAAAAAAgiAIggAEQRAEQRAAgCAIggAEQRAEQRAIAAQCgUAACAQCgUAgEAgABAKBQAAIBAIAACAQCAAEAoFAAAgEAgAAIBAIAAQCgUAACAQCgUAgEAAAICAgICAAEBAQEBAQEBAAACAgICAgABAQEAAAABAQEAAgICAgIAAQEBAAAAAQEBAAICAgICAAEBAQEBAQEBAQACAgICAgABAQEBAQEBAQEAAgICAgIAAQEBAQEBAQEAAAICAgICAAAAAAAAAAAAAAICAgICAgICAgICAgICAgQIAAAQIKAAAh+QQJRgACACwAAAAAEAAQAIEAAADbFhYAAAAAAAAC55QkIiIiIoQQQggBAAAAAAAAgiAIggAEQRAEQRAAgCAIggAEQRAEQRAIAAQCgUAACAQCgUAgEAgABAKBQAAIBAIAACAQCAAEAoFAAAgEAgAAIBAIAAQCgUAACAQCgUAgEAAAICAgICAAEBAQEBAQEBAAACAgICAgABAQEAAAABAQEAAgICAgIAAQEBAAAAAQEBAAICAgICAAEBAQEBAQEBAQACAgICAgABAQEBAQEBAQEAAgICAgIAAQEBAQEBAQEAAAICAgICAAAAAAAAAAAAAAICAgICAgICAgICAgICAgQIAAAQIKAAAh+QQJRgACACwAAAAAEAAQAIEAAAAO8gIAAAAAAAAC55QkIiIiIoQQQggBAAAAAAAAgiAIggAEQRAEQRAAgCAIggAEQRAEQRAIAAQCgUAACAQCgUAgEAgABAKBQAAIBAIAACAQCAAEAoFAAAgEAgAAIBAIAAQCgUAACAQCgUAgEAAAICAgICAAEBAQEBAQEBAAACAgICAgABAQEAAAABAQEAAgICAgIAAQEBAAAAAQEBAAICAgICAAEBAQEBAQEBAQACAgICAgABAQEBAQEBAQEAAgICAgIAAQEBAQEBAQEAAAICAgICAAAAAAAAAAAAAAICAgICAgICAgICAgICAgQIAAAQIKAAAh+QQJRgACACwAAAAAEAAQAIEAAAAeR+gAAAAAAAAC55QkIiIiIoQQQggBAAAAAAAAgiAIggAEQRAEQRAAgCAIggAEQRAEQRAIAAQCgUAACAQCgUAgEAgABAKBQAAIBAIAACAQCAAEAoFAAAgEAgAAIBAIAAQCgUAACAQCgUAgEAAAICAgICAAEBAQEBAQEBAAACAgICAgABAQEAAAABAQEAAgICAgIAAQEBAAAAAQEBAAICAgICAAEBAQEBAQEBAQACAgICAgABAQEBAQEBAQEAAgICAgIAAQEBAQEBAQEAAAICAgICAAAAAAAAAAAAAAICAgICAgICAgICAgICAgQIAAAQIKAAA7" rel="icon" type="image/x-icon">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        margin-top: 70px;
+        background-color: black;
+        color: yellow;
+      }
+      .container{
+         visibility: auto;
+      }
+      .card {
+         margin-top: 15px;
+      }
+      .card-block {
+        padding: 10px;
+      }
+      .h{
+         margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h1 class="display-3 text-center mb-3">Bitcoin converter</h1>
+           <form>
+            <div class="form-group_0">
+              <input type="number" id="btcInput" placeholder="How much btc?" сlass="form-control form-control-lg"/>
+            </div>
+          </form>
+          <div id="output_0">
+            <h3 class="h">Bitcoin price:</h3>
+            <div class="card alert-warning mb-2">
+              <div class="card-block">
+                <h4>USD</h4>
+                <div id="usdOutput_0"></div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <form>
+            <div class="form-group">
+              <input type="number" id="usdInput" placeholder="How much $?" сlass="form-control form-control-lg"/>
+            </div>
+          </form>
+          <div id="output">
+            <h3>You can buy:</h3>
+            <div class="card alert-success mb-2">
+              <div class="card-block">
+                <h4>BTC</h4>
+                <div id="btcOutput"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById('output').style.visibility = 'hidden';
+      document.getElementById('usdInput').addEventListener('input', function (e) {
+         document.getElementById('output').style.visibility = 'visible';
+          let usd = e.target.value;
+          document.getElementById('btcOutput').innerHTML = usd * 0.000050;
+        });
+        document.getElementById('output_0').style.visibility = 'hidden';
+        document.getElementById('btcInput').addEventListener('input', function (e) {
+         document.getElementById('output_0').style.visibility = 'visible';
+          let btc = e.target.value;
+          document.getElementById('usdOutput_0').innerHTML = btc / 0.000050;
+        });
+    </script>
+  </body>
+</html>
